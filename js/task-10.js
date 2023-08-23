@@ -12,14 +12,13 @@ createBtn.addEventListener('click', handlerCreate);
 destroyBtn.addEventListener('click', handlerDestroy);
 
 input.value = '0';
-let size = 20;
 
+let size = 30;
 function handlerCreate() {
   const count = Number(input.value);
   const arr = [];
 
   for (let i = 0; i < count; i += 1) {
-    size += 10;
 
     const createDiv = document.createElement('div');
     createDiv.style.width = `${size}px`;
@@ -27,6 +26,8 @@ function handlerCreate() {
     createDiv.style.backgroundColor = getRandomHexColor();
 
     arr.push(createDiv);
+    size += 10;
+
   }
   boxes.append(...arr);
   input.value = '0';
@@ -34,5 +35,6 @@ function handlerCreate() {
 
 function handlerDestroy() {
   boxes.innerHTML = '';
+  size = 20
   input.value = '0';
 }
